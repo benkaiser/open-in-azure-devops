@@ -3,6 +3,7 @@
 	"displayName": "Open In Azure DevOps",
 	"description": "Open the current file selection in Azure DevOps",
 	"version": "0.0.1",
+	"publisher": "benkaiser",
 	"engines": {
 		"vscode": "^1.40.0"
 	},
@@ -10,14 +11,25 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"*"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [{
-			"command": "extension.helloWorld",
-			"title": "Hello World"
-		}]
+		"configuration": {
+			"title": "Open in Azure DevOps",
+			"properties": {
+				"openInAzureDevOps.repoUrl": {
+					"description": "Full path to your repo e.g. https://contoso.visualstudio.com/MyTeam/_git/my-repo",
+					"type": "string"
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "extension.openInAzureDevOps",
+				"title": "Open in Azure DevOps"
+			}
+		]
 	},
 	"scripts": {
 		"vscode:prepublish": "yarn run compile",
