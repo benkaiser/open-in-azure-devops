@@ -4,6 +4,11 @@
 	"description": "Open the current file selection in Azure DevOps",
 	"version": "0.0.1",
 	"publisher": "benkaiser",
+	"repository": {
+		"type" : "git",
+		"url" : "https://github.com/benkaiser/open-in-azure-devops"
+	},
+	"license": "MIT",
 	"engines": {
 		"vscode": "^1.40.0"
 	},
