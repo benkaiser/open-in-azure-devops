@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import * as fs from 'fs';
 
 export function activate(context: vscode.ExtensionContext) {
 	let disposable = vscode.commands.registerCommand('extension.openInAzureDevOps', () => {
@@ -6,7 +7,13 @@ export function activate(context: vscode.ExtensionContext) {
 		if (!repoUrl || !vscode.window.activeTextEditor) {
 			return;
 		}
-		const relativePath = '/' + vscode.workspace.asRelativePath(vscode.window.activeTextEditor.document.fileName);
+		let rootFolder: string = vscode.workspace.getConfiguration().get('openInAzureDevOps.rootFolder') || '';
+
+		let relativePath = '/' + vscode.workspace.asRelativePath(vscode.window.activeTextEditor.document.fileName);
+		if (rootFolder != '' && fs.existsSync(rootFolder)) {
+			relativePath = vscode.window.activeTextEditor.document.fileName.replace(rootFolder, '');
+		}
+		
 		let lineStart: number = 0;
 		let columnStart: number = 0;
 		let lineEnd: number = 0;
