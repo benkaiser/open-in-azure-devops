@@ -26,6 +26,10 @@
 				"openInAzureDevOps.repoUrl": {
 					"description": "Full path to your repo e.g. https://contoso.visualstudio.com/MyTeam/_git/my-repo",
 					"type": "string"
+				},
+				"openInAzureDevOps.rootFolder": {
+					"description": "Root folder of your repo e.g. C:\\src\\my-repo",
+					"type": "string"
 				}
 			}
 		},
