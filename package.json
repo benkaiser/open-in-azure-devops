@@ -2,7 +2,7 @@
 	"name": "open-in-azure-devops",
 	"displayName": "Open In Azure DevOps",
 	"description": "Open the current file selection in Azure DevOps",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"publisher": "benkaiser",
 	"repository": {
 		"type" : "git",
